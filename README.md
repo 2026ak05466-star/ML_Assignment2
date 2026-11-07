@@ -1,6 +1,8 @@
 # ML Assignment 2 — Multi-Model Classification with Streamlit Deployment
 
 M.Tech (AIML) — Machine Learning — BITS Pilani WILP
+Name-Akshay Anil Duduskar
+Email-2026ak05466@wilp.bits-pilani.ac.in
 
 - **GitHub Repository:** `https://github.com/2026ak05466-star/ML_Assignment2.git`
 - **Live Streamlit App:** `https://2026ak05466-ml-assignment2.streamlit.app`
@@ -105,5 +107,4 @@ pip install -r requirements.txt
 python train_models.py          # trains, saves models, writes test_data.csv
 streamlit run app.py
 ```
-# ML_Assignment2
 # ML_Assignment2
