@@ -79,7 +79,7 @@ st.write("Upload the held-out test CSV, pick a model, and see how the **pre-trai
          "model performs. Models are loaded from `model/` — nothing is retrained here.")
 
 if uploaded is None:
-    st.info("👈 Upload a test CSV from the sidebar to begin "
+    st.info(" Upload a test CSV from the sidebar to begin "
             "(you can download the sample test_data.csv there).")
     st.stop()
 
@@ -102,7 +102,7 @@ with st.expander(f"Preview uploaded data ({df.shape[0]} rows × {df.shape[1]} co
 
 # ----- Selected model -----
 metrics, y_pred = evaluate(models[model_name], X, y, len(classes))
-st.subheader(f"📊 Evaluation metrics — {model_name}")
+st.subheader(f" Evaluation metrics — {model_name}")
 cols = st.columns(6)
 for col, (k, v) in zip(cols, metrics.items()):
     col.metric(k, "n/a" if np.isnan(v) else f"{v:.4f}")
@@ -125,7 +125,7 @@ with right:
 
 # ----- All models -----
 if compare_all:
-    st.subheader("🏁 All models on this test data")
+    st.subheader(" All models on this test data")
     rows = []
     for name, mdl in models.items():
         m, _ = evaluate(mdl, X, y, len(classes))

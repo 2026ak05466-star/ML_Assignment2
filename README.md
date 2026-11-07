@@ -3,7 +3,7 @@
 M.Tech (AIML) — Machine Learning — BITS Pilani WILP
 
 - **GitHub Repository:** `https://github.com/2026ak05466-star/ML_Assignment2.git`
-- **Live Streamlit App:** `<paste your *.streamlit.app URL here>`
+- **Live Streamlit App:** `https://2026ak05466-ml-assignment2.streamlit.app`
 
 ---
 

@@ -30,7 +30,7 @@ from sklearn.tree import DecisionTreeClassifier
 RANDOM_STATE = 42
 MODEL_DIR = "model"
 
-
+# ---------- 1. Load data ----------
 def load_dataset(csv_path, target):
     """Load the CSV given by the user, or the default UCI Breast Cancer dataset."""
     if csv_path:
@@ -45,7 +45,7 @@ def load_dataset(csv_path, target):
     df.columns = [c.replace(" ", "_") for c in df.columns]
     return df, "diagnosis"
 
-
+# ---------- 2. Preprocessing ----------
 def build_preprocessor(X):
     num_cols = X.select_dtypes(include=np.number).columns.tolist()
     cat_cols = [c for c in X.columns if c not in num_cols]
@@ -57,7 +57,7 @@ def build_preprocessor(X):
     return ColumnTransformer([("num", num_pipe, num_cols),
                               ("cat", cat_pipe, cat_cols)])
 
-
+# ---------- 3. The 5 models ----------
 def get_models():
     return {
         "Logistic Regression": LogisticRegression(max_iter=2000, random_state=RANDOM_STATE),
@@ -69,7 +69,7 @@ def get_models():
                                       random_state=RANDOM_STATE),
     }
 
-
+# ---------- 4. The 6 metrics ----------
 def compute_metrics(y_true, y_pred, y_proba, n_classes):
     avg = "binary" if n_classes == 2 else "weighted"
     if n_classes == 2:
@@ -85,7 +85,7 @@ def compute_metrics(y_true, y_pred, y_proba, n_classes):
         "MCC": matthews_corrcoef(y_true, y_pred),
     }
 
-
+# ---------- 5. Train, evaluate, save ----------
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--csv", default=None)
